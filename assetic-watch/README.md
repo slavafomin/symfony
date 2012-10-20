@@ -19,9 +19,6 @@ Requirements
 
 ---
 Slava Fomin II <s.fomin@betsol.ru>
-
 Feel free to contact me.
-
 From Russia with Love.
-
 Let's make this World a Better place!
