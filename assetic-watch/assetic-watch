@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# assetic-watch: A very simple shell-script to recursively and efficiently
+# watch for asset changes and to trigger automatic recompilation.
+#
+# By Slava Fomin II <s.fomin@betsol.ru>  
+# Feel free to contact me.
+# From Russia with Love.
+# Let's make this World a Better place!
+# --------------------------------------
+
 #===============#
 # CONFIGURATION #
 #===============#
