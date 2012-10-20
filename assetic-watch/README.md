@@ -18,7 +18,10 @@ Requirements
 * **inotifywait** must be installed, [see](https://google.com/?q=install+inotifywait "Google it!")
 
 ---
-> Slava Fomin II <s.fomin@betsol.ru>
-> Feel free to contact me.
-> From Russia with Love.
-> Let's make this World a Better place!
+Slava Fomin II <s.fomin@betsol.ru>
+
+Feel free to contact me.
+
+From Russia with Love.
+
+Let's make this World a Better place!
