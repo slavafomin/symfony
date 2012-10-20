@@ -22,13 +22,13 @@ WATCH_PATH="Name/Bundle/NameBundle/Resources/public/css"
 ENV="dev"
 
 # Additional options for "app/console".
-OPTS="--no-debug"
+OPTS=""
 
 # inotifywait events to watch for.
-IFW_EVENTS="close_write,moved_to,create"
+INW_EVENTS="close_write,moved_to,create"
 
 # Optional inotifywait arguments.
-IFW_OPTS=""
+INW_OPTS=""
 
 # Relative path to the Symfony root directory.
 SYMFONY_PATH="../"
@@ -44,6 +44,6 @@ SRC_PATH="$SCRIPT_DIR/${SYMFONY_PATH}/src/$WATCH_PATH"
 quietly() { "$@" > /dev/null 2>&1; }
 
 while true; do
-    quietly inotifywait --recursive -e $IFW_EVENTS $IFW_OPTS $SRC_PATH
+    quietly inotifywait --recursive -e $INW_EVENTS $INW_OPTS $SRC_PATH
     php $CONSOLE_PATH assetic:dump --env=$ENV $OPTS
 done
