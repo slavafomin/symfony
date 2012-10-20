@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#===============#
+# CONFIGURATION #
+#===============#
+
+# Path relative to "Symfony/src" directory.
+# File changes under specified directory will trigger recompilation
+# of all assets.
+WATCH_PATH="Name/Bundle/NameBundle/Resources/public/css"
+
+# Environment.
+ENV="dev"
+
+# Additional options for "app/console".
+OPTS="--no-debug"
+
+# inotifywait events to watch for.
+IFW_EVENTS="close_write,moved_to,create"
+
+# Optional inotifywait arguments.
+IFW_OPTS=""
+
+# Relative path to the Symfony root directory.
+SYMFONY_PATH="../"
+
+#============#
+# PROCESSING #
+#============#
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CONSOLE_PATH="$SCRIPT_DIR/${SYMFONY_PATH}/app/console"
+SRC_PATH="$SCRIPT_DIR/${SYMFONY_PATH}/src/$WATCH_PATH"
+
+quietly() { "$@" > /dev/null 2>&1; }
+
+while true; do
+    quietly inotifywait --recursive -e $IFW_EVENTS $IFW_OPTS $SRC_PATH
+    php $CONSOLE_PATH assetic:dump --env=$ENV $OPTS
+done
